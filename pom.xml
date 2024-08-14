@@ -172,7 +172,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.baeldung.auth.AuthorizationServerApp</mainClass>
+                    <mainClass>com.mine.oauthauthorizationserver.OauthAuthorizationServerApplication</mainClass>
                     <requiresUnpack>
                         <dependency>
                             <groupId>org.keycloak</groupId>
