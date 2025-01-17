@@ -23,6 +23,11 @@ jobs:
             echo "tag=false" >> $GITHUB_ENV
           fi
 
+      - name: Configure Git identity
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
+
       - name: Create Tag
         if: env.tag == 'true'
         run: |
