@@ -21,6 +21,7 @@ jobs:
           else
             echo "No tagging needed."
             echo "tag=false" >> $GITHUB_ENV
+          fi  # Add this missing line
 
       - name: Configure Git identity
         run: |
