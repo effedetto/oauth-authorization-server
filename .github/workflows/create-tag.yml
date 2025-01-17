@@ -31,5 +31,5 @@ jobs:
       - name: Create Tag
         if: env.tag == 'true'
         run: |
-          git tag -a "PRDGCP_$(date +%Y%m%d%H%M%S)-001" -m "Tag creato automaticamente"
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/effedetto/oauth-authorization-server.git "PRDGCP_$(date +%Y%m%d%H%M%S)-001"
+          git tag -a "PRDGCP_$(date +%Y%m%d)-001" -m "Tag creato automaticamente"
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/effedetto/oauth-authorization-server.git "PRDGCP_$(date +%Y%m%d)-001"
