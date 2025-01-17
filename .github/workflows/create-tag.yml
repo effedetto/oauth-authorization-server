@@ -26,8 +26,7 @@ jobs:
       - name: Configure Git identity
         run: |
           git config --global user.name "TaggingAutomatico"
-          git config --global user.email "your-email@example.com"
-		  
+          git config --global user.email "your-email@example.com"	  
       - name: Get latest tag
         run: |
           latest_tag=$(git describe --tags --abbrev=0)
