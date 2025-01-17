@@ -33,7 +33,10 @@ jobs:
           latest_tag=$(git describe --tags --abbrev=0)
           echo "Latest tag: $latest_tag"
           echo "latest_tag=$latest_tag" >> $GITHUB_ENV
-
+      - name: Fetch tags
+        run: git fetch --tags         
+      - name: List existing tags
+        run: git tag
       - name: Extract version number
         run: |
           version=$(echo "${{ env.latest_tag }}" | grep -oP '\d+$')
