@@ -1,0 +1,30 @@
+name: Create Tag on Push
+
+on:
+  push:
+    branches:
+      - main  # Sostituisci con il tuo branch principale se diverso
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check commit message
+        id: check_message
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" == *"prova"* ]]; then
+            echo "Tagging commit because 'prova' was found in the message."
+            echo "tag=true" >> $GITHUB_ENV
+          else
+            echo "No tagging needed."
+            echo "tag=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create Tag
+        if: env.tag == 'true'
+        run: |
+          git tag -a ilMioTag -m "Tag creato automaticamente"
+          git push origin ilMioTag
